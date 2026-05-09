@@ -1,0 +1,33 @@
+name: Flow of jobs
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job1:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo "from inline bash where job will flow in"
+            - run: echo "one direction"
+
+    job2:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo "No needs for this"
+
+    job3: 
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo "will need job1 and job2"
+        needs: 
+            - job1
+            - job2
+    
+    job4:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo " indipent one "
+        needs: 
+            - job1
+            - job2
+            - job3
