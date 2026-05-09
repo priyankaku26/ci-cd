@@ -8,7 +8,7 @@ on:
     pull_request:
         paths:
             - "ci-cd/one.md"  
-            - "!ci-cd/text-txt"
+            - "!ci-cd/text.txt"
             
 jobs:
     echo-events:
