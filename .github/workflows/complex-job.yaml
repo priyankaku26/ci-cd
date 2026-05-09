@@ -1,4 +1,4 @@
-name: Flow of jobs
+name: complex flow
 
 on:
     workflow_dispatch:
@@ -28,6 +28,5 @@ jobs:
         steps:
             - run: echo " indipent one "
         needs: 
-            - job1
             - job2
             - job3
