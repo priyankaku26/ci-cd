@@ -1,0 +1,17 @@
+name: trigger workflow 
+
+on: 
+    push:
+        branches:
+            - "example-branch/*"
+
+    pull_request:
+        paths:
+            - "ci-cd/one.md"  
+            - "!ci-cd/text-txt"
+            
+jobs:
+    echo-events:
+        runs-on: ubuntu-24.04
+        steps:
+            - run: echo "triggered only one file whilepull request"
